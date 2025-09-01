@@ -17,7 +17,7 @@ public class OrderItem {
     private Product prodotto;
 
     private int quantita;
-    private double prezzoUnitario;
+    private Double prezzoUnitario;
 
     public OrderItem() {}
 

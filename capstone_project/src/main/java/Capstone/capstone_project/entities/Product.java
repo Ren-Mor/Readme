@@ -1,5 +1,6 @@
 package Capstone.capstone_project.entities;
 
+import Capstone.capstone_project.enums.Category;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,10 +13,9 @@ public class Product {
     private String descrizione;
     private Double prezzo;
     private String immagine;
-
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
     private Category categoria;
+
+
 
     public Product() {}
 

@@ -2,7 +2,6 @@ package Capstone.capstone_project.entities;
 
 import Capstone.capstone_project.enums.OrderStatus;
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
 

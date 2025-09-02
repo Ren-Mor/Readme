@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd7c468a-aaaf-4404-b5d2-a269fb8c9461" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/config/JWTCheckerFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/config/JWTTools.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/exceptions/BadRequestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/exceptions/ExceptionsHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/exceptions/NotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/exceptions/UnauthorizedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/exceptions/ValidationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/ErrorsDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/ErrorsWithListDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewUserDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +19,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Exception" />
-        <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>

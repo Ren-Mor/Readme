@@ -1,5 +1,6 @@
 package Capstone.capstone_project.entities;
 
+import Capstone.capstone_project.enums.Roles;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,11 +16,11 @@ public class User {
     private String email;
 
     private String password;
-    private String ruolo;
+    private Roles ruolo;
 
     public User() {}
 
-    public User(String nome, String cognome, String email, String password, String ruolo) {
+    public User(String nome, String cognome, String email, String password, Roles ruolo) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
@@ -49,7 +50,7 @@ public class User {
         return password;
     }
 
-    public String getRuolo() {
+    public Roles getRuolo() {
         return ruolo;
     }
 
@@ -71,7 +72,7 @@ public class User {
         this.password = password;
     }
 
-    public void setRuolo(String ruolo) {
+    public void setRuolo(Roles ruolo) {
         this.ruolo = ruolo;
     }
 

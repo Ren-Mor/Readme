@@ -1,13 +1,15 @@
 package Capstone.capstone_project.controllers;
 
-import Ren_Mor.gestione_eventi.entities.User;
-import Ren_Mor.gestione_eventi.exceptions.ValidationException;
-import Ren_Mor.gestione_eventi.payloads.LoginDTO;
-import Ren_Mor.gestione_eventi.payloads.LoginResponseDTO;
-import Ren_Mor.gestione_eventi.payloads.NewUserDTO;
-import Ren_Mor.gestione_eventi.payloads.NewUserResponseDTO;
-import Ren_Mor.gestione_eventi.services.AuthService;
-import Ren_Mor.gestione_eventi.services.UserService;
+
+import Capstone.capstone_project.entities.User;
+import Capstone.capstone_project.exceptions.ValidationException;
+import Capstone.capstone_project.payloads.LoginDTO;
+import Capstone.capstone_project.payloads.LoginResponseDTO;
+import Capstone.capstone_project.payloads.NewUserDTO;
+import Capstone.capstone_project.payloads.NewUserResponseDTO;
+
+import Capstone.capstone_project.services.AuthService;
+import Capstone.capstone_project.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;

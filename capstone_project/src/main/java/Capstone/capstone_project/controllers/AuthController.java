@@ -7,7 +7,6 @@ import Capstone.capstone_project.payloads.LoginDTO;
 import Capstone.capstone_project.payloads.LoginResponseDTO;
 import Capstone.capstone_project.payloads.NewUserDTO;
 import Capstone.capstone_project.payloads.NewUserResponseDTO;
-
 import Capstone.capstone_project.services.AuthService;
 import Capstone.capstone_project.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd7c468a-aaaf-4404-b5d2-a269fb8c9461" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/LoginDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/LoginResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewUserResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewUserDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

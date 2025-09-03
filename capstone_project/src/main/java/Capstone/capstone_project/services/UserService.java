@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,6 +17,9 @@ public class UserService {
 
     @Autowired
     private UserRepository usersRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public Page<User> findAll(int page, int size, String sortBy) {
         return usersRepository.findAll(PageRequest.of(page, size, Sort.by(sortBy)));
@@ -36,7 +40,7 @@ public class UserService {
         }
 
         found.setEmail(payload.email());
-        found.setPassword(payload.password());
+        found.setPassword(passwordEncoder.encode(payload.password()));
 
         User modifiedUser = usersRepository.save(found);
         return modifiedUser;
@@ -46,7 +50,6 @@ public class UserService {
         return usersRepository.findByEmail(email)
                 .orElseThrow(() -> new BadRequestException("Utente non trovato con email: " + email));
     }
-
 
     public void delete(Long userId) {
         User user = findById(userId);
@@ -59,7 +62,8 @@ public class UserService {
             throw new BadRequestException("L'email " + user.getEmail() + " è già in uso!");
         });
 
-        User newUser = new User(payload.nome(), payload.cognome(), payload.email(), payload.password(), Roles.UTENTE);
+        String encodedPassword = passwordEncoder.encode(payload.password());
+        User newUser = new User(payload.nome(), payload.cognome(), payload.email(), encodedPassword, Roles.UTENTE);
         return usersRepository.save(newUser);
     }
 }

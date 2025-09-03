@@ -29,7 +29,11 @@ public class UserController {
         this.utentiService.delete(id);
     }
 
-
+    // Permette all'utente autenticato di eliminare il proprio account
+    @DeleteMapping("/me")
+    public void deleteCurrentUser(@AuthenticationPrincipal User currentUser) {
+        this.utentiService.delete(currentUser.getId());
+    }
 
 
     @GetMapping("/me")

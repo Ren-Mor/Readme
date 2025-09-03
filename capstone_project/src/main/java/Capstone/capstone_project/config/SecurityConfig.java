@@ -11,11 +11,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
@@ -24,16 +22,21 @@ public class SecurityConfig {
         httpSecurity.csrf(csrf -> csrf.disable());
 
         httpSecurity.sessionManagement(sessions -> sessions.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-        httpSecurity.authorizeHttpRequests(h -> h.requestMatchers("/**").permitAll());
 
+        httpSecurity.authorizeHttpRequests(h -> h
+                .requestMatchers("/auth/**").permitAll() // Solo autenticazione pubblica
+                .requestMatchers("/utenti/**").authenticated() // Solo utenti autenticati
+                .requestMatchers("/orders/**").authenticated() // Solo utenti autenticati
+                .anyRequest().permitAll() // Altre rotte pubbliche (modifica se necessario)
+        );
 
         httpSecurity.cors(Customizer.withDefaults());
 
         return httpSecurity.build();
-
     }
 
     @Bean
     public PasswordEncoder getBCrypt() {
         return new BCryptPasswordEncoder(12);
-    }}
+    }
+}

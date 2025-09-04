@@ -44,7 +44,7 @@ public class CartService {
             item.setQuantita(item.getQuantita() + quantita);
             cartItemRepository.save(item);
         } else {
-            CartItem newItem = new CartItem(cart, product, quantita);
+            CartItem newItem = new CartItem(product, quantita);
             cart.getItems().add(cartItemRepository.save(newItem));
         }
         return cartRepository.save(cart);

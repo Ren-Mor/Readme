@@ -1,6 +1,6 @@
 package Capstone.capstone_project.services;
 
-import Capstone.capstone_project.entities.Order;
+import Capstone.capstone_project.entities.Ordine;
 import Capstone.capstone_project.entities.Payment;
 import Capstone.capstone_project.enums.PaymentStatus;
 import Capstone.capstone_project.exceptions.NotFoundException;
@@ -19,7 +19,7 @@ public class PaymentService {
     private OrderRepository orderRepository;
 
     public Payment createPayment(NewPaymentDTO payload) {
-        Order ordine = orderRepository.findById(payload.ordineId())
+        Ordine ordine = orderRepository.findById(payload.ordineId())
                 .orElseThrow(() -> new NotFoundException(payload.ordineId().intValue()));
 
         Payment payment = new Payment(
@@ -32,7 +32,7 @@ public class PaymentService {
     }
 
     public Payment getPaymentByOrder(Long ordineId) {
-        Order ordine = orderRepository.findById(ordineId)
+        Ordine ordine = orderRepository.findById(ordineId)
                 .orElseThrow(() -> new NotFoundException(ordineId.intValue()));
         return paymentRepository.findByOrdine(ordine)
                 .orElseThrow(() -> new NotFoundException(ordineId.intValue()));

@@ -17,11 +17,11 @@ public class Payment {
 
     @OneToOne
     @JoinColumn(name = "order_id", nullable = false, unique = true)
-    private Order ordine;
+    private Ordine ordine;
 
     public Payment() {}
 
-    public Payment(String metodo, Double importo, PaymentStatus statoPagamento, Order ordine) {
+    public Payment(String metodo, Double importo, PaymentStatus statoPagamento, Ordine ordine) {
         this.metodo = metodo;
         this.importo = importo;
         this.statoPagamento = statoPagamento;
@@ -45,7 +45,7 @@ public class Payment {
         return statoPagamento;
     }
 
-    public Order getOrdine() {
+    public Ordine getOrdine() {
         return ordine;
     }
 
@@ -62,7 +62,7 @@ public class Payment {
         this.statoPagamento = statoPagamento;
     }
 
-    public void setOrdine(Order ordine) {
+    public void setOrdine(Ordine ordine) {
         this.ordine = ordine;
     }
 }

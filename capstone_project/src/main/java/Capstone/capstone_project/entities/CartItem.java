@@ -9,10 +9,6 @@ public class CartItem {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id", nullable = false)
-    private Cart carrello;
-
-    @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product prodotto;
 
@@ -20,8 +16,7 @@ public class CartItem {
 
     public CartItem() {}
 
-    public CartItem(Cart carrello, Product prodotto, int quantita) {
-        this.carrello = carrello;
+    public CartItem(Product prodotto, int quantita) {
         this.prodotto = prodotto;
         this.quantita = quantita;
     }
@@ -29,10 +24,6 @@ public class CartItem {
     // Getter
     public Long getId() {
         return id;
-    }
-
-    public Cart getCarrello() {
-        return carrello;
     }
 
     public Product getProdotto() {
@@ -44,10 +35,6 @@ public class CartItem {
     }
 
     // Setter
-    public void setCarrello(Cart carrello) {
-        this.carrello = carrello;
-    }
-
     public void setProdotto(Product prodotto) {
         this.prodotto = prodotto;
     }

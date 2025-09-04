@@ -27,17 +27,17 @@ public class OrderService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<Order> getOrdersByUser(User utente) {
+    public List<Ordine> getOrdersByUser(User utente) {
         return orderRepository.findByUtente(utente);
     }
 
-    public Order getOrderById(Long id) {
+    public Ordine getOrderById(Long id) {
         return orderRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id.intValue()));
     }
 
     @Transactional
-    public Order createOrder(User utente, List<CartItem> cartItems) {
+    public Ordine createOrder(User utente, List<CartItem> cartItems) {
         if (cartItems == null || cartItems.isEmpty()) {
             throw new IllegalArgumentException("Il carrello è vuoto.");
         }
@@ -46,7 +46,7 @@ public class OrderService {
                 .mapToDouble(item -> item.getProdotto().getPrezzo() * item.getQuantita())
                 .sum();
 
-        Order ordine = new Order();
+        Ordine ordine = new Ordine();
         ordine.setNumeroOrdine(UUID.randomUUID().toString());
         ordine.setDataOrdine(LocalDateTime.now());
         ordine.setTotale(totale);
@@ -71,13 +71,13 @@ public class OrderService {
     }
 
     public void updateOrderStatus(Long orderId, OrderStatus status) {
-        Order ordine = getOrderById(orderId);
+        Ordine ordine = getOrderById(orderId);
         ordine.setStatoOrdine(status);
         orderRepository.save(ordine);
     }
 
     public void deleteOrder(Long orderId) {
-        Order ordine = getOrderById(orderId);
+        Ordine ordine = getOrderById(orderId);
         orderRepository.delete(ordine);
     }
 }

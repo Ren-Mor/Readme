@@ -10,7 +10,7 @@ public class OrderItem {
 
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
-    private Order ordine;
+    private Ordine ordine;
 
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
@@ -21,7 +21,7 @@ public class OrderItem {
 
     public OrderItem() {}
 
-    public OrderItem(Order ordine, Product prodotto, int quantita, double prezzoUnitario) {
+    public OrderItem(Ordine ordine, Product prodotto, int quantita, double prezzoUnitario) {
         this.ordine = ordine;
         this.prodotto = prodotto;
         this.quantita = quantita;
@@ -33,7 +33,7 @@ public class OrderItem {
         return id;
     }
 
-    public Order getOrdine() {
+    public Ordine getOrdine() {
         return ordine;
     }
 
@@ -50,7 +50,7 @@ public class OrderItem {
     }
 
     // Setter
-    public void setOrdine(Order ordine) {
+    public void setOrdine(Ordine ordine) {
         this.ordine = ordine;
     }
 

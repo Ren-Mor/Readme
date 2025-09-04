@@ -2,9 +2,16 @@ package Capstone.capstone_project.entities;
 
 import Capstone.capstone_project.enums.Roles;
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
 
 @Entity
-public class User {
+@Table(name = "utente")
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,6 +23,7 @@ public class User {
     private String email;
 
     private String password;
+    @Enumerated(EnumType.STRING)
     private Roles ruolo;
 
     public User() {}
@@ -50,6 +58,11 @@ public class User {
         return password;
     }
 
+    @Override
+    public String getUsername() {
+        return "";
+    }
+
     public Roles getRuolo() {
         return ruolo;
     }
@@ -74,6 +87,31 @@ public class User {
 
     public void setRuolo(Roles ruolo) {
         this.ruolo = ruolo;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_" + this.ruolo.name()));
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
 }

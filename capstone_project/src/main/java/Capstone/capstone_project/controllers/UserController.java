@@ -31,6 +31,7 @@ public class UserController {
 
     // Permette all'utente autenticato di eliminare il proprio account
     @DeleteMapping("/me")
+    @PreAuthorize("hasRole('ROLE_UTENTE')")
     public void deleteCurrentUser(@AuthenticationPrincipal User currentUser) {
         this.utentiService.delete(currentUser.getId());
     }

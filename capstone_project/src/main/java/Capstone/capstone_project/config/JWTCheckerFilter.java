@@ -45,7 +45,7 @@ public class JWTCheckerFilter extends OncePerRequestFilter {
         User currentUser = userRepository.findById(userId)
                 .orElseThrow(() -> new UnauthorizedException("Utente non trovato!"));
 
-        Authentication authentication = new UsernamePasswordAuthenticationToken(currentUser, null, null);
+        Authentication authentication = new UsernamePasswordAuthenticationToken(currentUser, null, currentUser.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         filterChain.doFilter(request, response);

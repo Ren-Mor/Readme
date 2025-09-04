@@ -13,7 +13,8 @@ public class Cart {
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User utente;
 
-    @OneToMany(mappedBy = "carrello", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "cart_id", nullable = false)
     private List<CartItem> items;
 
     public Cart() {}

@@ -1,5 +1,6 @@
 package Capstone.capstone_project.payloads;
 
+import Capstone.capstone_project.enums.Roles;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -16,5 +17,5 @@ public record NewUserDTO(
         String email,
         @NotBlank(message = "La password è obbligatoria.")
         @Size(min = 4)
-        String password) {
+        String password){
 }

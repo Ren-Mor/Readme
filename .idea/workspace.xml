@@ -5,26 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd7c468a-aaaf-4404-b5d2-a269fb8c9461" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/CartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/AddressDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/CartDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/CartItemDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewAddressDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewPaymentDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewProductDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/OrderDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/OrderItemDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/PaymentDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/ProductDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/UpdateProductDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/CartService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/PaymentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/runners/AdminCreation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/runners/AdminRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/CapstoneProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/CapstoneProjectApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/config/JWTCheckerFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/config/JWTCheckerFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/CartItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/Ordine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewUserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/repositories/CartItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/repositories/CartItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/repositories/OrderItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/repositories/OrderItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/repositories/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/repositories/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/repositories/PaymentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/repositories/PaymentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/PaymentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,15 +55,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CapstoneProjectApplication.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="dd7c468a-aaaf-4404-b5d2-a269fb8c9461" name="Changes" comment="" />

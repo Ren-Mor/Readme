@@ -44,4 +44,12 @@ public class CartController {
     public Cart clearCart(@AuthenticationPrincipal User currentUser) {
         return cartService.clearCart(currentUser);
     }
+
+    // Calcolo totale carrello
+    @GetMapping("/total")
+    public Double getCartTotal(@AuthenticationPrincipal User currentUser) {
+        Cart cart = cartService.getCartByUser(currentUser);
+        return cartService.calculateTotal(cart);
+    }
+
 }

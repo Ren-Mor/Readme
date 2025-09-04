@@ -1,7 +1,7 @@
 package Capstone.capstone_project.controllers;
 
 import Capstone.capstone_project.entities.Cart;
-import Capstone.capstone_project.entities.Order;
+import Capstone.capstone_project.entities.Ordine;
 import Capstone.capstone_project.entities.User;
 import Capstone.capstone_project.enums.OrderStatus;
 import Capstone.capstone_project.services.CartService;
@@ -24,14 +24,14 @@ public class OrderController {
 
     // Lista ordini dell'utente autenticato
     @GetMapping
-    public List<Order> getMyOrders(@AuthenticationPrincipal User currentUser) {
+    public List<Ordine> getMyOrders(@AuthenticationPrincipal User currentUser) {
         return orderService.getOrdersByUser(currentUser);
     }
 
     // Dettaglio ordine
     @GetMapping("/{id}")
-    public Order getOrderById(@PathVariable Long id, @AuthenticationPrincipal User currentUser) {
-        Order ordine = orderService.getOrderById(id);
+    public Ordine getOrderById(@PathVariable Long id, @AuthenticationPrincipal User currentUser) {
+        Ordine ordine = orderService.getOrderById(id);
         if (!ordine.getUtente().getId().equals(currentUser.getId())) {
             throw new RuntimeException("Non autorizzato a visualizzare questo ordine.");
         }
@@ -40,11 +40,11 @@ public class OrderController {
 
     // Creazione ordine dal carrello
     @PostMapping
-    public Order createOrder(@AuthenticationPrincipal User currentUser) {
+    public Ordine createOrder(@AuthenticationPrincipal User currentUser) {
         Cart cart = cartService.getCartByUser(currentUser);
-        Order order = orderService.createOrder(currentUser, cart.getItems());
+        Ordine ordine = orderService.createOrder(currentUser, cart.getItems());
         cartService.clearCart(currentUser);
-        return order;
+        return ordine;
     }
 
     // Aggiornamento stato ordine (solo ADMIN)

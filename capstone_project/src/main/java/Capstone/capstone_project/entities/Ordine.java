@@ -6,7 +6,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-public class Order {
+@Table(name = "ordini")
+public class Ordine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,9 +29,9 @@ public class Order {
     @OneToMany(mappedBy = "ordine", cascade = CascadeType.ALL)
     private List<OrderItem> items;
 
-    public Order() {}
+    public Ordine() {}
 
-    public Order(String numeroOrdine, LocalDateTime dataOrdine, Double totale, OrderStatus statoOrdine, User utente, List<OrderItem> items) {
+    public Ordine(String numeroOrdine, LocalDateTime dataOrdine, Double totale, OrderStatus statoOrdine, User utente, List<OrderItem> items) {
         this.numeroOrdine = numeroOrdine;
         this.dataOrdine = dataOrdine;
         this.totale = totale;

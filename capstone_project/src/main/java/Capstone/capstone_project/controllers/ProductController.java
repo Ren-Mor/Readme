@@ -63,12 +63,6 @@ public class ProductController {
         return productService.findAll(page, size, sortBy);
     }
 
-    // Esporta tutti i prodotti (solo ADMIN)
-    @GetMapping("/admin/export")
-    @PreAuthorize("hasRole('ADMIN')")
-    public List<Product> exportAllProducts() {
-        return productService.findAll(0, Integer.MAX_VALUE, "id").getContent();
-    }
 
     // Statistiche prodotti (esempio: numero totale prodotti per categoria, solo ADMIN)
     @GetMapping("/admin/stats")

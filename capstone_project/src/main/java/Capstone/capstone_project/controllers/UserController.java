@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or principal.username == @userService.getUsernameById(#autoreId)")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteUserById(@PathVariable Long id) {
         this.utentiService.delete(id);
     }

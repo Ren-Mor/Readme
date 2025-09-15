@@ -1,0 +1,13 @@
+body {
+  background-color: rgb(187, 187, 187);
+}
+
+.cart-button {
+  background-color: rgb(206, 2, 2);
+}
+
+.product-card:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+  transition: transform 0.2s ease-in-out;
+}

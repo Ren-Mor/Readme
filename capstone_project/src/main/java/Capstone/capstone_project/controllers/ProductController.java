@@ -23,19 +23,9 @@ public class ProductController {
     private ProductService productService;
 
     // Lista paginata di prodotti (pubblica)
-    @GetMapping
-    public Page<Product> getAll(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "id") String sortBy
-    ) {
-        return productService.findAll(page, size, sortBy);
-    }
-
-    // Ricerca per nome (pubblica)
-    @GetMapping("/search")
-    public List<Product> searchByNome(@RequestParam String nome) {
-        return productService.searchByNome(nome);
+    @GetMapping ("/all")
+    public List<ProductDTO> getAll() {
+        return productService.findAll();
     }
 
     // Filtro per categoria (pubblica)
@@ -52,26 +42,6 @@ public class ProductController {
 
     // --- BACKOFFICE ---
 
-    // Lista completa prodotti (paginata, solo ADMIN)
-    @GetMapping("/admin/all")
-    @PreAuthorize("hasRole('ADMIN')")
-    public Page<Product> getAllProductsForAdmin(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size,
-            @RequestParam(defaultValue = "id") String sortBy
-    ) {
-        return productService.findAll(page, size, sortBy);
-    }
-
-
-    // Statistiche prodotti (esempio: numero totale prodotti per categoria, solo ADMIN)
-    @GetMapping("/admin/stats")
-    @PreAuthorize("hasRole('ADMIN')")
-    public Map<Category, Long> getProductStats() {
-        // Esempio: conta prodotti per categoria
-        List<Product> all = productService.findAll(0, Integer.MAX_VALUE, "id").getContent();
-        return all.stream().collect(java.util.stream.Collectors.groupingBy(Product::getCategoria, java.util.stream.Collectors.counting()));
-    }
 
     // Creazione prodotto (solo ADMIN)
     @PostMapping

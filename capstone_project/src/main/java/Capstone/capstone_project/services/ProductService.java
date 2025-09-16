@@ -4,14 +4,13 @@ import Capstone.capstone_project.entities.Product;
 import Capstone.capstone_project.enums.Category;
 import Capstone.capstone_project.exceptions.NotFoundException;
 import Capstone.capstone_project.payloads.NewProductDTO;
+import Capstone.capstone_project.payloads.ProductDTO;
 import Capstone.capstone_project.payloads.UpdateProductDTO;
 import Capstone.capstone_project.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,8 +19,21 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public Page<Product> findAll(int page, int size, String sortBy) {
-        return productRepository.findAll(PageRequest.of(page, size, Sort.by(sortBy)));
+    public List<ProductDTO> findAll() {
+        List <Product> products = productRepository.findAll();
+        List <ProductDTO> results = new ArrayList<>();
+        for (Product p : products) {
+            ProductDTO dto = new ProductDTO(
+                    p.getId(),
+                    p.getNome(),
+                    p.getDescrizione(),
+                    p.getPrezzo(),
+                    p.getImmagine(),
+                    p.getCategoria()
+            );
+            results.add(dto);
+        }
+        return results;
     }
 
     public Product findById(Long id) {
@@ -29,9 +41,6 @@ public class ProductService {
                 .orElseThrow(() -> new NotFoundException(id.intValue()));
     }
 
-    public List<Product> searchByNome(String nome) {
-        return productRepository.findByNomeContainingIgnoreCase(nome);
-    }
 
     public List<Product> findByCategoria(Category categoria) {
         return productRepository.findByCategoria(categoria);

@@ -4,6 +4,8 @@ Il progetto che intendo presentare come capstone per consolidare le conoscennze 
 Il sito si comporrà di una Landing Page dove troveremo una navbar, una hero-section e un footer. La navbar presenterà una searchbar, un carrello.
 Sarà inoltre possibile muoversi tramite quest'ultima, ad una pagina per visualizzare tutti i prodotti del sito ,che potranno essere filtrati tramite la searchbar e aggiunti al nostro carrello. 
 Infine un link per navigare alla pagina di autenticazione, senza la quale non si potranno effettuare acquisti, e dalla quale sarà possibile visualizzare e modificare i dati dell'utente, e consultare lo storico ordini.
+E' prevista anche l'implementazione di un backoffice apposito per l'admin, col quale potrà gestire l'inventario prodotti,
+e infine un sistema di pagamento.
 
 Il sito sarà strutturato, lato Frontend:
 
@@ -18,3 +20,6 @@ Java Spring,
 rest API.
 
 Il database sarà gestito tramite PostgreSQL.
+
+
+Link per il Frontend: https://github.com/Ren-Mor/capstone-store

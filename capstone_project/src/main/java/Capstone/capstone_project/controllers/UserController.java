@@ -25,12 +25,20 @@ public class UserController {
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public List<NewUserResponseDTO> getAllUsers(@RequestParam (value = "page", defaultValue = "0")int page, @RequestParam(value = "size", defaultValue = "10")int size) {
+    public List<NewUserResponseDTO> getAllUsers(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
-        Page <User> usersPage = this.utentiService.findAll(pageable);
-        return usersPage.stream().map(user -> new NewUserResponseDTO(
-                user.getId()
-        )).toList();
+        Page<User> usersPage = this.utentiService.findAll(pageable);
+        return usersPage.stream()
+                .map(user -> new NewUserResponseDTO(
+                        user.getId(),
+                        user.getNome(),
+                        user.getCognome(),
+                        user.getEmail(),
+                        user.getRuolo()
+                ))
+                .toList();
     }
 
     @DeleteMapping("/{id}")

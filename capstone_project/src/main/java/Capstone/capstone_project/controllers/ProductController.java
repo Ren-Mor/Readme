@@ -6,11 +6,16 @@ import Capstone.capstone_project.payloads.NewProductDTO;
 import Capstone.capstone_project.payloads.ProductDTO;
 import Capstone.capstone_project.payloads.UpdateProductDTO;
 import Capstone.capstone_project.services.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
@@ -42,19 +47,31 @@ public class ProductController {
 
     // --- BACKOFFICE ---
 
-
     // Creazione prodotto (solo ADMIN)
-    @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
-    public Product create(@RequestBody @Validated NewProductDTO payload) {
-        return productService.save(payload);
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public Product create(
+            @RequestPart("dto") @Valid NewProductDTO dto,
+            @RequestPart("image") MultipartFile image)
+             {
+        return productService.save(dto, image);
     }
 
     // Modifica prodotto (solo ADMIN)
-    @PutMapping("/{id}")
+    @PatchMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @PreAuthorize("hasRole('ADMIN')")
-    public Product update(@PathVariable Long id, @RequestBody @Validated UpdateProductDTO payload) {
-        return productService.update(id, payload);
+    public Product update(@PathVariable Long id,
+                          @RequestPart("dto") UpdateProductDTO dtoRequestPart, @RequestPart(name = "image", required = false) MultipartFile image)
+    {UpdateProductDTO dto = new UpdateProductDTO(
+                dtoRequestPart.nome(),
+                dtoRequestPart.descrizione(),
+                dtoRequestPart.prezzo(),
+                image,
+                dtoRequestPart.categoria()
+
+        );
+
+        return productService.update(id, dto);
     }
 
     // Cancellazione prodotto (solo ADMIN)

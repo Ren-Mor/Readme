@@ -37,7 +37,13 @@ public class AuthController {
                     .stream().map(fieldError -> fieldError.getDefaultMessage()).toList());
         } else {
             User newUser = this.utentiService.save(payload);
-            return new NewUserResponseDTO(newUser.getId());
+            return new NewUserResponseDTO(
+                    newUser.getId(),
+                    newUser.getNome(),
+                    newUser.getCognome(),
+                    newUser.getEmail(),
+                    newUser.getRuolo()
+            );
         }
     }
 }

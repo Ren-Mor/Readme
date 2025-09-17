@@ -5,9 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record NewProductDTO(
-        @NotBlank String nome,
-        @NotBlank String descrizione,
-        @NotNull Double prezzo,
-        @NotBlank String immagine,
-        @NotNull Category categoria
+         String nome,
+         String descrizione,
+         Double prezzo,
+         Category categoria
 ) {}

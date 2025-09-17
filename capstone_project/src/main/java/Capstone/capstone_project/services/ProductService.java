@@ -7,17 +7,24 @@ import Capstone.capstone_project.payloads.NewProductDTO;
 import Capstone.capstone_project.payloads.ProductDTO;
 import Capstone.capstone_project.payloads.UpdateProductDTO;
 import Capstone.capstone_project.repositories.ProductRepository;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private Cloudinary cloudinary;
 
     public List<ProductDTO> findAll() {
         List <Product> products = productRepository.findAll();
@@ -46,12 +53,19 @@ public class ProductService {
         return productRepository.findByCategoria(categoria);
     }
 
-    public Product save(NewProductDTO payload) {
+    public Product save(NewProductDTO payload, MultipartFile imageFile) {
+        String imageUrl;
+        try {
+            Map<?, ?> uploadResult = cloudinary.uploader().upload(imageFile.getBytes(), ObjectUtils.emptyMap());
+            imageUrl = uploadResult.get("secure_url").toString();
+        } catch (IOException e) {
+            throw new RuntimeException("Errore nel caricamento dell'immagine su Cloudinary", e);
+        }
         Product product = new Product(
                 payload.nome(),
                 payload.descrizione(),
                 payload.prezzo(),
-                payload.immagine(),
+                imageUrl,
                 payload.categoria()
         );
         return productRepository.save(product);
@@ -62,8 +76,17 @@ public class ProductService {
         product.setNome(payload.nome());
         product.setDescrizione(payload.descrizione());
         product.setPrezzo(payload.prezzo());
-        product.setImmagine(payload.immagine());
         product.setCategoria(payload.categoria());
+        MultipartFile newImage = payload.immagine();
+        if (newImage != null && !newImage.isEmpty()) {
+            try {
+                Map<?, ?> uploadResult = cloudinary.uploader().upload(newImage.getBytes(), ObjectUtils.emptyMap());
+                String imageUrl = uploadResult.get("secure_url").toString();
+                product.setImmagine(imageUrl);
+            } catch (IOException e) {
+                throw new RuntimeException("Errore nel caricamento della nuova immagine", e);
+            }
+        }
         return productRepository.save(product);
     }
 

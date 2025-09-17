@@ -1,13 +1,12 @@
 package Capstone.capstone_project.payloads;
 
 import Capstone.capstone_project.enums.Category;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import org.springframework.web.multipart.MultipartFile;
 
 public record UpdateProductDTO(
-        @NotBlank String nome,
-        @NotBlank String descrizione,
-        @NotNull Double prezzo,
-        @NotBlank String immagine,
-        @NotNull Category categoria
+         String nome,
+         String descrizione,
+         Double prezzo,
+         MultipartFile immagine,
+         Category categoria
 ) {}

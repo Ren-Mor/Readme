@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd7c468a-aaaf-4404-b5d2-a269fb8c9461" name="Changes" comment="" />
+    <list default="true" id="dd7c468a-aaaf-4404-b5d2-a269fb8c9461" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewProductDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewUserResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewUserResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/UpdateProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/UpdateProductDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/ProductService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

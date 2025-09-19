@@ -4,16 +4,12 @@ import Capstone.capstone_project.entities.Product;
 import Capstone.capstone_project.enums.Category;
 import Capstone.capstone_project.payloads.NewProductDTO;
 import Capstone.capstone_project.payloads.ProductDTO;
-import Capstone.capstone_project.payloads.UpdateProductDTO;
 import Capstone.capstone_project.services.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -49,7 +45,7 @@ public class ProductController {
 
     // Creazione prodotto (solo ADMIN)
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public Product create(
             @RequestPart("dto") @Valid NewProductDTO dto,
             @RequestPart("image") MultipartFile image)
@@ -58,20 +54,30 @@ public class ProductController {
     }
 
     // Modifica prodotto (solo ADMIN)
-    @PatchMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping("/image/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public Product update(@PathVariable Long id,
-                          @RequestPart("dto") UpdateProductDTO dtoRequestPart, @RequestPart(name = "image", required = false) MultipartFile image)
-    {UpdateProductDTO dto = new UpdateProductDTO(
-                dtoRequestPart.nome(),
-                dtoRequestPart.descrizione(),
-                dtoRequestPart.prezzo(),
-                image,
-                dtoRequestPart.categoria()
+    public Map<String, String> uploadImage(
+            @PathVariable Long id,
+            @RequestParam("file") MultipartFile file) {
 
+        return productService.updateImage(id, file );
+    }
+
+    // Aggiorna solo i dati (solo ADMIN)
+    @PutMapping("/data/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public NewProductDTO updateData(
+            @PathVariable Long id,
+            @Valid @RequestBody NewProductDTO payload) {
+
+        Product updatedProduct = productService.updateData(id, payload);
+
+        return new NewProductDTO(
+                updatedProduct.getNome(),
+                updatedProduct.getDescrizione(),
+                updatedProduct.getPrezzo(),
+                updatedProduct.getCategoria()
         );
-
-        return productService.update(id, dto);
     }
 
     // Cancellazione prodotto (solo ADMIN)

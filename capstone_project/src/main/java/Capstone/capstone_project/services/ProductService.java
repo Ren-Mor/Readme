@@ -2,10 +2,10 @@ package Capstone.capstone_project.services;
 
 import Capstone.capstone_project.entities.Product;
 import Capstone.capstone_project.enums.Category;
+import Capstone.capstone_project.exceptions.BadRequestException;
 import Capstone.capstone_project.exceptions.NotFoundException;
 import Capstone.capstone_project.payloads.NewProductDTO;
 import Capstone.capstone_project.payloads.ProductDTO;
-import Capstone.capstone_project.payloads.UpdateProductDTO;
 import Capstone.capstone_project.repositories.ProductRepository;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
@@ -71,22 +71,33 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public Product update(Long id, UpdateProductDTO payload) {
-        Product product = findById(id);
-        product.setNome(payload.nome());
-        product.setDescrizione(payload.descrizione());
-        product.setPrezzo(payload.prezzo());
-        product.setCategoria(payload.categoria());
-        MultipartFile newImage = payload.immagine();
-        if (newImage != null && !newImage.isEmpty()) {
-            try {
-                Map<?, ?> uploadResult = cloudinary.uploader().upload(newImage.getBytes(), ObjectUtils.emptyMap());
-                String imageUrl = uploadResult.get("secure_url").toString();
-                product.setImmagine(imageUrl);
-            } catch (IOException e) {
-                throw new RuntimeException("Errore nel caricamento della nuova immagine", e);
-            }
+    public Map<String, String> updateImage(Long id, MultipartFile file) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException(id));
+
+        try {
+            String imageUrl = (String) cloudinary.uploader()
+                    .upload(file.getBytes(), ObjectUtils.emptyMap())
+                    .get("url");
+
+            product.setImmagine(product.getImmagine());
+            productRepository.save(product);
+
+            return Map.of("imageUrl", imageUrl);
+
+        } catch (IOException e) {
+            throw new BadRequestException("Errore durante il caricamento dell'immagine");
         }
+    }
+
+    public Product updateData(Long id, NewProductDTO payload) {
+        Product product =productRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException(id));
+        if (payload.nome() != null) product.setNome(payload.nome());
+        if (payload.descrizione() != null) product.setDescrizione(payload.descrizione());
+        if (payload.prezzo() != null) product.setPrezzo(payload.prezzo());
+        if (payload.categoria() != null) product.setCategoria(payload.categoria());
+
         return productRepository.save(product);
     }
 

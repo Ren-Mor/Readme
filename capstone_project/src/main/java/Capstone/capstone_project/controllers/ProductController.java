@@ -53,14 +53,14 @@ public class ProductController {
         return productService.save(dto, image);
     }
 
-    // Modifica prodotto (solo ADMIN)
+    // Modifica immagine prodotto (solo ADMIN)
     @PostMapping("/image/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public Map<String, String> uploadImage(
             @PathVariable Long id,
-            @RequestParam("file") MultipartFile file) {
+            @RequestParam("image") MultipartFile image) {
 
-        return productService.updateImage(id, file );
+        return productService.updateImage(id, image );
     }
 
     // Aggiorna solo i dati (solo ADMIN)

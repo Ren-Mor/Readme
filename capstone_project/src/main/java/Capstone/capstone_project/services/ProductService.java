@@ -76,11 +76,11 @@ public class ProductService {
                 .orElseThrow(() -> new NotFoundException(id));
 
         try {
-            String imageUrl = (String) cloudinary.uploader()
-                    .upload(file.getBytes(), ObjectUtils.emptyMap())
-                    .get("url");
+            Map<?, ?> uploadResult = cloudinary.uploader()
+                    .upload(file.getBytes(), ObjectUtils.emptyMap());
+            String imageUrl = uploadResult.get("secure_url").toString();
 
-            product.setImmagine(product.getImmagine());
+            product.setImmagine(imageUrl);
             productRepository.save(product);
 
             return Map.of("imageUrl", imageUrl);

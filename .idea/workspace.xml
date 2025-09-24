@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd7c468a-aaaf-4404-b5d2-a269fb8c9461" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/payloads/NewUserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/capstone_project/src/main/java/Capstone/capstone_project/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env.properties" beforeDir="false" afterPath="$PROJECT_DIR$/env.properties" afterDir="false" />
-    </list>
+    <list default="true" id="dd7c468a-aaaf-4404-b5d2-a269fb8c9461" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +39,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }

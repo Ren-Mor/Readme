@@ -46,6 +46,8 @@ public class UserService {
 
         found.setEmail(payload.email());
         found.setPassword(passwordEncoder.encode(payload.password()));
+        found.setNome(payload.nome());
+        found.setCognome(payload.cognome());
 
         User modifiedUser = usersRepository.save(found);
         return modifiedUser;

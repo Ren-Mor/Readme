@@ -24,7 +24,7 @@ public class ProductController {
     private ProductService productService;
 
     // Lista paginata di prodotti (pubblica)
-    @GetMapping ("/all")
+    @GetMapping ("category/all")
     public List<ProductDTO> getAll() {
         return productService.findAll();
     }
